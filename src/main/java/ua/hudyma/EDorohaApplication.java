@@ -7,5 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EDorohaApplication {
     public static void main(String[] args) {
         SpringApplication.run(EDorohaApplication.class, args);
+        //do
     }
 }

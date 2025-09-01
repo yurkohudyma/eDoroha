@@ -5,6 +5,12 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  application:
+    name: eDoroha
+  config:
+    import:
+      - "classpath:graphhopper.yml"
+
   jpa:
     hibernate:
       ddl-auto: update

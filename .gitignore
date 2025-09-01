@@ -1,2 +1,11 @@
 /target/
 /.idea/
+/src/main/resources/graphhopper.yml
+/gh/graphFolderPath/edgekv_keys
+/gh/graphFolderPath/edgekv_vals
+/gh/graphFolderPath/edges
+/gh/graphFolderPath/geometry
+/gh/graphFolderPath/location_index
+/gh/graphFolderPath/nodes
+/gh/graphFolderPath/properties
+/gh/ukraine-latest.osm.pbf
