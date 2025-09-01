@@ -30,3 +30,5 @@ logging:
     org.springframework.web.servlet.DispatcherServlet: DEBUG
     org.springframework.web.client.RestTemplate: INFO
     org.springframework.web.HttpLogging: WARN
+    org.springframework.boot.context.config: DEBUG
+    org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport: WARN
