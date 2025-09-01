@@ -105,15 +105,17 @@ function showRatingPopup(coords) {
     .openOn(map);
 }
 
-function saveRating(score, coords) {
-  fetch('/api/route-feedback', {
+function saveRating(gradeStatus, coords) {
+  fetch('/save', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      score: score,
+      userId: 1,
+      gradeStatus: gradeStatus,
       geometry: coords
+      //provide corresponding fields for dto
     })
   })
   .then(res => {

@@ -6,8 +6,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import ua.hudyma.dto.GradeRequestDto;
+import ua.hudyma.dto.GradeResponseDto;
 import ua.hudyma.dto.RouteDto;
 import ua.hudyma.dto.RouteResponseDto;
+import ua.hudyma.service.GradeService;
 import ua.hudyma.service.RouteService;
 
 @RestController
@@ -15,6 +18,7 @@ import ua.hudyma.service.RouteService;
 @Log4j2
 public class GradeController {
     private final RouteService routeService;
+    private final GradeService gradeService;
 
     @PostMapping
     public ResponseEntity<RouteResponseDto> getRoute
@@ -22,4 +26,13 @@ public class GradeController {
         return ResponseEntity.ok(
                 routeService.getRoute (routeDto));
     }
+
+    @PostMapping("/save")
+    public ResponseEntity<GradeResponseDto> saveGrade (
+            @RequestBody GradeRequestDto gradeRequestDto){
+        return ResponseEntity.ok().build();
+
+        //todo align blogic with javascript, to-be-sent dto field are not exacts
+    }
+
 }
