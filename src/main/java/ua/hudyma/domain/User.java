@@ -6,6 +6,7 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -22,10 +23,10 @@ public class User {
     private String email;
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @CreationTimestamp
-    private Date createdOn;
+    private LocalDateTime createdOn;
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @UpdateTimestamp
-    private Date updatedOn;
+    private LocalDateTime updatedOn;
     @OneToMany(mappedBy = "user",
             fetch = FetchType.EAGER)
     private List<Grade> gradeList;

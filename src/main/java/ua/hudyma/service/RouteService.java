@@ -21,22 +21,11 @@ import java.util.List;
 public class RouteService {
 
     private static final RestTemplate restTemplate = new RestTemplate();
-    private static String staticKey;
+    //private static String staticKey;
     @Value("${graphhopper.api.key}")
     private String key;
 
-    void setKey(String key) {
-        this.key = key;
-        RouteService.staticKey = key;
-    }
-
-    static String getStaticKey() {
-        return staticKey;
-    }
-
-    public static RouteResponseDto getRoute(RouteDto routeDto) {
-        String key = getStaticKey();
-
+    public RouteResponseDto getRoute(RouteDto routeDto) {
         var departure = routeDto.departure();
         var destination = routeDto.destination();
         String url = UriComponentsBuilder

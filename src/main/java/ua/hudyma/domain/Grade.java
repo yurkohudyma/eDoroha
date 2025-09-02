@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import ua.hudyma.converter.RouteListConverter;
 import ua.hudyma.dto.RouteDto;
 import ua.hudyma.dto.RoutePoint;
 import ua.hudyma.enums.GradeStatus;
@@ -34,7 +35,7 @@ public class Grade {
     @JoinColumn(
             name = "user_id")
     private User user;
-    @Embedded
+    /*@Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "latitude",
                     column = @Column(name = "departure_latitude", nullable = false)),
@@ -50,10 +51,15 @@ public class Grade {
             @AttributeOverride(name = "longitude",
                     column = @Column(name = "destination_longitude", nullable = false))
     })
-    private RoutePoint destination;
+    private RoutePoint destination;*/
 
     @Enumerated(value = EnumType.STRING)
     @Column(nullable = false)
     private GradeStatus gradeStatus;
+
+    @Convert(converter = RouteListConverter.class)
+    @Column(columnDefinition = "LONGTEXT")
+    private List<double[]> routeList;
+
 
 }
