@@ -1,0 +1,24 @@
+.rating-popup button,
+.edit-popup button {
+  margin: 4px;
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.rating-popup,
+.edit-popup {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.leaflet-container {
+  cursor: default;
+}
+
+.route-line {
+  pointer-events: auto;
+}
