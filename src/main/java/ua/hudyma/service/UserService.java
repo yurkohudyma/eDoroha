@@ -1,13 +1,17 @@
 package ua.hudyma.service;
 
+import com.devskiller.jfairy.Fairy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 import ua.hudyma.domain.User;
 import ua.hudyma.enums.UserRequestDto;
 import ua.hudyma.repository.UserRepository;
 
-import javax.management.AttributeNotFoundException;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
@@ -24,5 +28,32 @@ public class UserService {
             return userRepository.save(user);
         }
         throw new IllegalArgumentException("EMAIL not provided");
+    }
+
+    public User generateUser() {
+        Fairy fairy = Fairy.create();
+        var generatedPerson = fairy.person();
+        log.info(generatedPerson);
+        var user = new User();
+        user.setEmail(generatedPerson.getEmail());
+        return userRepository.save(user);
+    }
+
+    public List<User> generateUser(int number) {
+        var list = Stream
+                .generate(UserService::create)
+                .limit(number)
+                .toList();
+        return userRepository.saveAll(list);
+    }
+
+    @NotNull
+    private static User create() {
+        Fairy fairy = Fairy.create(Locale.forLanguageTag("uk"));
+        var generatedPerson = fairy.person();
+        log.info(generatedPerson);
+        var user = new User();
+        user.setEmail(generatedPerson.getEmail());
+        return user;
     }
 }

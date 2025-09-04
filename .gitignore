@@ -9,3 +9,5 @@
 /gh/graphFolderPath/nodes
 /gh/graphFolderPath/properties
 /gh/ukraine-latest.osm.pbf
+/lib/
+/src/main/resources/META-INF/MANIFEST.MF
